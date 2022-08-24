@@ -247,11 +247,76 @@
     "rhinestonePen": {
         "text": "水鑽筆",
         "data": [
+            {
+                "id": "555",
+                "label": "金箔發財筆",
+                "amount": 38
+            },
+            {
+                "id": "5046-1",
+                "label": "彩鑽觸控筆",
+                "amount": 38
+            },
+            {
+                "id": "2139",
+                "label": "彩色晶鑽筆",
+                "amount": 29
+            }
         ]
     },
     "lalaPen": {
         "text": "拉拉紙筆",
         "data": [
+            {
+                "id": "816",
+                "label": "816拉紙筆(需提供完稿檔案)",
+                "amount": 13
+            },
+            {
+                "id": "805C",
+                "label": "透明拉紙筆(需提供完稿檔案)",
+                "amount": 12
+            },
+            {
+                "id": "802A",
+                "label": "拉紙筆(需提供完稿檔案)",
+                "amount": 12
+            },
+            {
+                "id": "2027",
+                "label": "菱型筆蓋拉紙筆",
+                "amount": 12
+            },
+            {
+                "id": "823",
+                "label": "膠套拉紙筆",
+                "amount": 12
+            },
+            {
+                "id": "2006",
+                "label": "菱形QR拉紙筆",
+                "amount": 12
+            },
+            {
+                "id": "063-18",
+                "label": "彩色膠套拉紙筆",
+                "amount": 12
+            },
+            {
+                "id": "063-14",
+                "label": "方型QR拉紙筆",
+                "amount": 12
+            },
+            {
+                "id": "063-13",
+                "label": "ＬＥＤ燈拉紙筆",
+                "amount": 12
+            },
+            {
+                "id": "1063",
+                "label": "拉紙筆AEDL款",
+                "amount": 12
+            }
         ]
     },
     "advertisingPen": {
@@ -335,37 +400,32 @@
             {
                 "id": "1236",
                 "label": "三線觸控三色筆",
-                "amount": 0
+                "amount": 8.3
             },
             {
                 "id": "1240",
                 "label": "三線透明三色筆",
-                "amount": 0
-            },
-            {
-                "id": "1025G",
-                "label": "日本白桿三色筆",
-                "amount": 0
+                "amount": 5
             },
             {
                 "id": "1025H",
                 "label": "黑白桿三色筆",
-                "amount": 0
+                "amount": 5.3
             },
             {
                 "id": "1025D／F",
                 "label": "白桿粉彩三色筆",
-                "amount": 0
+                "amount": 5.9
             },
             {
                 "id": "1025C",
                 "label": "透明三色筆",
-                "amount": 0
+                "amount": 5
             },
             {
                 "id": "1025B",
                 "label": "粉彩三色筆",
-                "amount": 0
+                "amount": 5.9
             }
         ]
     },
@@ -375,7 +435,7 @@
             {
                 "id": "1053",
                 "label": "四色掛勾筆",
-                "amount": 0
+                "amount": 6.7
             }
         ]
     },
