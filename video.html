@@ -14,8 +14,7 @@ function onCvLoaded () {
     console.log('cv', cv);
     cv.onRuntimeInitialized = onReady;
 }
-const video = document.getElementById('video');
-const actionBtn = document.getElementById('actionBtn');
+const video = document.getElementById('video'); 
 const FPS = 30;
 let stream;
 let streaming = false;
@@ -23,7 +22,12 @@ function onReady () {
     console.log('ready');
     let src;
     let dst;
-    let cap;
+    let cap; 
+    let faces = new cv.RectVector();
+    let classifier = new cv.CascadeClassifier(); 
+    // load pre-trained classifiers
+    classifier.load('haarcascade_frontalface_default.xml');
+
 
     video.controls = true;
     video.addEventListener('play', start);
@@ -46,19 +50,54 @@ function onReady () {
         streaming = false;
     }
 
-    function processVideo () {
-        if (!streaming) {
-            src.delete();
-            dst.delete();
-            return;
+    // function processVideo () {
+    //     if (!streaming) {
+    //         src.delete();
+    //         dst.delete();
+    //         return;
+    //     }
+    //     const begin = Date.now();
+    //     cap.read(src)
+    //     cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
+    //     cv.imshow('canvasOutput', dst);
+    //     const delay = 1000/FPS - (Date.now() - begin);
+    //     setTimeout(processVideo, delay);
+    // }
+
+
+    function processVideo() {
+        try {
+            if (!streaming) {
+                // clean and stop.
+                src.delete();
+                dst.delete();
+                gray.delete();
+                faces.delete();
+                classifier.delete();
+                return;
+            }
+            let begin = Date.now();
+            // start processing.
+            cap.read(src);
+            src.copyTo(dst);
+            cv.cvtColor(dst, gray, cv.COLOR_RGBA2GRAY, 0);
+            // detect faces.
+            classifier.detectMultiScale(gray, faces, 1.1, 3, 0);
+            // draw faces.
+            for (let i = 0; i < faces.size(); ++i) {
+                let face = faces.get(i);
+                let point1 = new cv.Point(face.x, face.y);
+                let point2 = new cv.Point(face.x + face.width, face.y + face.height);
+                cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
+            }
+            cv.imshow('canvasOutput', dst);
+            // schedule the next one.
+            let delay = 1000/FPS - (Date.now() - begin);
+            setTimeout(processVideo, delay);
+        } catch (err) {
+            utils.printError(err);
         }
-        const begin = Date.now();
-        cap.read(src)
-        cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
-        cv.imshow('canvasOutput', dst);
-        const delay = 1000/FPS - (Date.now() - begin);
-        setTimeout(processVideo, delay);
-    }
+    };
 }
 
 </script>
