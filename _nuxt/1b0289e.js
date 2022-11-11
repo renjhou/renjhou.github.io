@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[40],{802:function(t,n,e){"use strict";e.r(n);var o={components:{Edit:e(727).default}},l=e(7),component=Object(l.a)(o,(function(){return(0,this._self._c)("Edit",{attrs:{id:this.$route.params.id}})}),[],!1,null,null,null);n.default=component.exports}}]);
